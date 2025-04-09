@@ -18,7 +18,7 @@ a:hover {
     font-size: 20px;
 }
 div {
-    background-color: chartreuse;
+    background-color: rgb(255, 0, 140);
     border: 1px solid rgb(0, 0, 0);
     padding: 10px;
     margin: 10px;
@@ -28,7 +28,7 @@ div {
 }
 #tabla {
     border-collapse: collapse;
-    width: 100%;
+    width: 50%;
     background-color: blueviolet;
 }
 th{
