@@ -71,5 +71,26 @@
         <br>
         <p class="parrafo">La clase esta llegando a sufin hoy</p>
         <span class="parrafo"> Este es otro ejemplo para aplicar clase  </span>
+
+        <form action="">
+            <label for="num1">Digite un Numero</label>
+            <input type="number" name="num1" id="num1" placeholder="Digite un numero 1"><br>
+            <label for="num2">Digite un Numero</label>
+            <input type="number" name="num2" id="num2" placeholder="Digite un numero 2"><br>
+            <label for="num3">El resultado de la suma es:</label>
+            <samp id="sumar"></samp><br>
+            <button type="button" onclick="sumarNumeros()">Sumar</button>
+        </form>
 </body>
+  <script>
+    function sumarNumeros() {
+        var num1 = parseFloat(document.getElementById("num1").value);
+        var num2 = parseFloat(document.getElementById("num2").value);
+        var resultado = num1 + num2;
+        document.getElementById("sumar").innerText = resultado;
+    }
+
+
+ 
+  </script>
 </html>
