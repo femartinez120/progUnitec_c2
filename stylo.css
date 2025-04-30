@@ -62,10 +62,10 @@ div {
     display: inline-block;
 }
 #tabla {
-    margin: 0 auto;
-    border-collapse: collapse;
+    margin: 0 auto; 
+    border-collapse: collapse; 
     width:80%;
-    background-color: blueviolet;
+    background-color: rgb(211, 183, 236);
 }
 th{
     background-color: blue;
@@ -73,8 +73,12 @@ th{
 }
 th, td {
     border: 1px solid black;
-    padding: 8px;
+    padding: 8px; 
     text-align: center;
+}
+tr:nth-child(even) {
+    background-color: rgb(248, 174, 236);
+    height: 15px;
 }
 .parrafo{
     background-color: rgb(255, 255, 0);
@@ -83,4 +87,13 @@ th, td {
     border-radius: 5px;
     width: 300px;
     display: inline-block;
+}
+input[type="text"], input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    height: 30px;
 }

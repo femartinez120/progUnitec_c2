@@ -20,7 +20,8 @@
     <h1 style="text-align: center; color:rgb(255, 0, 85)"><b>Gestion Datos Persona</b></h1>
     <hr noshade="noshade" size="10" color="green" align="center" width="50%">
     <br>
-    <table border="3" align="center" width="40%" cellpadding="10" cellspacing="0">
+    <center>
+    <table border="3" width="40%" cellpadding="10" cellspacing="0" id="formulario">
         <tr>
             <th>Propiedad</th>
             <th>Valor</th>
@@ -52,7 +53,7 @@
             </tr>
         </tbody>
     </table>
-    <table border="3" align="center" width="40%">
+    <table border="3" cellpadding="10" cellspacing="0">
         <tr>
             <td>
                 <button id="grd" onclick="guardarDatos()">Guardar</button>
@@ -63,7 +64,7 @@
 </body>
 <br>
 <h2>Listado de Clientes</h2>
-<table id="tabla"  border="3" align="center" width="50%" cellpadding="10" cellspacing="0" id="listado">
+<table id="tabla"  border="3"  width="50%" cellpadding="10" cellspacing="0" id="listado">
     <tr>
         <th>Cédula</th>
         <th>Nombres</th>
@@ -75,7 +76,7 @@
     </tr>
     <tbody id="cuerpoTabla"></tbody>
 </table>
-
+</center>
     <script src="gestionPersona.js"></script>
 </body>
 </html>
