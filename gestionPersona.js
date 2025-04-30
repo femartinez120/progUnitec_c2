@@ -2,6 +2,14 @@ document.getElementById('act').style.display = 'none';
 var objPersona = {ced:'', nom: '', ape: '', dir: '', tel: '', email: '' };
 var myArray = [];
 var posAct;
+comprobarLocarStorage(); // Comprobar si hay datos en localStorage al cargar la página
+function comprobarLocarStorage(){ 
+  if(localStorage.getItem('myArrayPersona') !== undefined && localStorage.getItem('myArrayPersona')){
+      myArray= JSON.parse(localStorage.getItem('myArrayPersona'));
+      mostrarDatos(myArray,'cuerpoTabla');
+     // console.log(myArray);
+  }
+}
 
 function guardarDatos(){
     objPersona.ced = document.getElementById('ced').value;
@@ -12,8 +20,12 @@ function guardarDatos(){
     objPersona.email = document.getElementById('cor').value;
     let resultado= JSON.parse(JSON.stringify(objPersona))    ; // Convertir el objeto a una cadena JSON
     myArray.push(resultado); // Agregar el objeto a la lista myArray
+    guardarLocal();
     limpiarCajas();
-    mostrarDatos();
+    mostrarDatos(myArray,'cuerpoTabla');
+}
+function guardarLocal(){
+  localStorage.setItem('myArrayPersona',JSON.stringify(myArray));
 }
 function limpiarCajas(){
     document.getElementById('ced').value = '';
@@ -24,19 +36,19 @@ function limpiarCajas(){
     document.getElementById('cor').value = '';
     document.getElementById('ced').focus();
 }   
-function mostrarDatos(){
+function mostrarDatos(arreglo,cuerpo){
   var salida='';
-  for(j in myArray){
-    salida +='<tr><td>' + myArray[j].ced + '</td><td>'+
-        myArray[j].nom + '</td><td>'+
-        myArray[j].ape + '</td><td>'+
-        myArray[j].dir + '</td><td>'+
-        myArray[j].tel + '</td><td>'+
-        myArray[j].email + '</td><td>'+
+  for(j in arreglo){
+    salida +='<tr><td>' + arreglo[j].ced + '</td><td>'+
+        arreglo[j].nom + '</td><td>'+
+        arreglo[j].ape + '</td><td>'+
+        arreglo[j].dir + '</td><td>'+
+        arreglo[j].tel + '</td><td>'+
+        arreglo[j].email + '</td><td>'+
         '<button class="ancho"  onclick="editarDatos('+j+')">Editar</button>'+
         '<button class="ancho"  onclick="eliminarDatos('+j+')">Eliminar</button></td></tr>';
   }
-    document.getElementById('cuerpoTabla').innerHTML=salida;
+    document.getElementById(cuerpo).innerHTML=salida;
 }
 function editarDatos(index){  
     document.getElementById('grd').style.display = 'none';
@@ -51,7 +63,8 @@ function editarDatos(index){
 }
 function eliminarDatos(index){
   myArray.splice(index, 1); // Eliminar el elemento en la posición index
-  mostrarDatos(); // Actualizar la tabla después de eliminar el elemento
+  guardarLocal();
+  mostrarDatos(myArray,'cuerpoTabla'); // Actualizar la tabla después de eliminar el elemento
 }
 function actualizarDatos(){
     myArray[posAct].ced = document.getElementById('ced').value;
@@ -61,7 +74,8 @@ function actualizarDatos(){
     myArray[posAct].tel = document.getElementById('tel').value;
     myArray[posAct].email = document.getElementById('cor').value;
     limpiarCajas();
-    mostrarDatos();
+    guardarLocal();
+    mostrarDatos(myArray,'cuerpoTabla');
     document.getElementById('act').style.display = 'none';
     document.getElementById('grd').style.display = 'block';
 }
