@@ -33,8 +33,8 @@ function mostrarDatos(){
         myArray[j].dir + '</td><td>'+
         myArray[j].tel + '</td><td>'+
         myArray[j].email + '</td><td>'+
-        '<button onclick="editarDatos('+j+')">Editar</button>'+
-        '<button onclick="eliminarDatos('+j+')">Eliminar</button></td></tr>';
+        '<button class="ancho"  onclick="editarDatos('+j+')">Editar</button>'+
+        '<button class="ancho"  onclick="eliminarDatos('+j+')">Eliminar</button></td></tr>';
   }
     document.getElementById('cuerpoTabla').innerHTML=salida;
 }
